@@ -1,15 +1,5 @@
-import pygame
+from code.Game import Game
 
-print('Início do Jogo!')
-pygame.init()
+game = Game()
 
-window = pygame.display.set_mode(size=(600, 600))
-
-while True:
-    # Checando todos os eventos
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()  # Fecha janela
-            print('Fim do Jogo!')
-            print('Saindo...')
-            quit()  # Finaliza o pygame
+game.run()
