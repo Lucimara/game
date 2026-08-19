@@ -18,6 +18,7 @@ class Menu:
             self.window.blit(source=self.surf, dest=self.rect)
             self.escrever_titulo()
 
+            # Poderia colocar em outra função
             for i in range(len(MENU_OPCOES)):
                 self.menu_texto(self, 20, MENU_OPCOES[i], COR_BRANCO, (WIN_WIDTH / 2, 790 + 30 *i))
 
