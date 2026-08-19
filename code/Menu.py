@@ -17,10 +17,7 @@ class Menu:
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
             self.escrever_titulo()
-
-            # Poderia colocar em outra função
-            for i in range(len(MENU_OPCOES)):
-                self.menu_texto(self, 20, MENU_OPCOES[i], COR_BRANCO, (WIN_WIDTH / 2, 790 + 30 *i))
+            self.escrever_opcoes()
 
             pg.display.flip()
 
@@ -29,10 +26,14 @@ class Menu:
                 if event.type == pg.QUIT:
                     self.fim_game()
 
+    def escrever_opcoes(self):
+        for i in range(len(MENU_OPCOES)):
+            self.menu_texto(self, 20, MENU_OPCOES[i], COR_BRANCO, (WIN_WIDTH / 2, 790 + 30 * i))
+
     # Responsável por exibir o título do jogo
     def escrever_titulo(self):
         # Catstle é a junção de cat e castle. Como Castelo Felino
-        self.menu_texto(self, 50, "Catstle", COR_BEGE, (WIN_WIDTH / 2, 700))
+        self.menu_texto(self, 50, "Catstle", COR_BRANCO, (WIN_WIDTH / 2, 700))
         self.menu_texto(self, 50, "Blood", COR_BEGE, (WIN_WIDTH / 2, 745))
 
     # Responsável por tocar a música inicial do jogo
@@ -49,7 +50,7 @@ class Menu:
 
     @staticmethod
     def menu_texto(self, tamanho: int, texto: str, cor_texto: tuple, posicao_texto: tuple):
-        text_font: Font = pg.font.SysFont(name='Lucida Sans Typewriter', size=tamanho)
+        text_font: Font = pg.font.SysFont(name='Kristen ITC', size=tamanho)
         text_surf: Surface = text_font.render(texto, True, cor_texto).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=posicao_texto)
         self.window.blit(source=text_surf, dest=text_rect)
