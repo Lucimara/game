@@ -12,4 +12,12 @@ class Game:
 
     def run(self):
         menu = Menu(self.window)
+        self.tocar_musica()
         menu.run()
+
+    # Responsável por tocar a música inicial do jogo
+    @staticmethod
+    def tocar_musica():
+        pg.mixer_music.load('./asset/sound-tribal-ambient-meditative-texture.wav')
+        pg.mixer_music.play(-1)
+
