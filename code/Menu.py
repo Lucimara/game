@@ -73,7 +73,7 @@ class Menu:
 
     @staticmethod
     def menu_texto(self, tamanho: int, texto: str, cor_texto: tuple, posicao_texto: tuple):
-        text_font: Font = pg.font.SysFont(name='Kristen ITC', size=tamanho)
+        text_font: Font = pg.font.SysFont(name='Broadway', size=tamanho)
         text_surf: Surface = text_font.render(texto, True, cor_texto).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=posicao_texto)
         self.window.blit(source=text_surf, dest=text_rect)
