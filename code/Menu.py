@@ -11,7 +11,7 @@ from code.Level import Level
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pg.image.load('./asset/Battleground2.png')
+        self.surf = pg.image.load('./asset/Battleground2.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
@@ -40,7 +40,7 @@ class Menu:
                         print("Constante: ", Const.MENU_OPCOES[menu_option])
                         if menu_option in [0, 1, 2]:
                             print('Entrou na opção: ', Const.MENU_OPCOES[menu_option])
-                            level = Level(self.window, 'Level 1', Const.MENU_OPCOES[menu_option])
+                            level = Level(self.window, 'Level1', Const.MENU_OPCOES[menu_option])
                             level.run()
                             # level_return = level.run()
                         elif menu_option == 4:

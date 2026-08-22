@@ -5,16 +5,16 @@ COR_INDIGO = (21, 24, 69)
 
 # E
 ENTITY_SPEED = {
-    'Level1BG0': 0,
-    'Level1BG1': 1,
-    'Level1BG2': 2,
-    'Level1BG3': 3,
-    'Level1BG4': 4,
-    'Level1BG5': 5,
-    'Level1BG6': 6,
-    'Level1BG7': 7,
-    'Level1BG8': 8,
-    'Level1BG9': 9,
+    'Level1BG0': 2,
+    'Level1BG1': 150,
+    'Level1BG2': 8,
+    'Level1BG3': 1000,
+    'Level1BG4': 60,
+    'Level1BG5': 200,
+    'Level1BG6': 4,
+    'Level1BG7': 60,
+    'Level1BG8': 3,
+    'Level1BG9': 2,
 }
 
 # M
