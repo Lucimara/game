@@ -1,17 +1,15 @@
 import pygame as pg
-from pygame.font import Font
-from pygame.rect import Rect
-from pygame.surface import Surface
 
 from code import Const
-from code.Const import WIN_WIDTH, COR_BEGE, MENU_OPCOES, COR_BRANCO, COR_INDIGO
+from code.Const import WIN_WIDTH, COR_LARANJA, MENU_OPCOES, COR_ROSA, COR_INDIGO
 from code.Level import Level
+from code.TextUtils import draw_text
 
 
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pg.image.load('./asset/Battleground2.png').convert_alpha()
+        self.surf = pg.image.load('./asset/InicioJogo.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
@@ -54,26 +52,16 @@ class Menu:
 
     def escrever_opcoes(self, menu_option):
         for i in range(len(MENU_OPCOES)):
-            if i == menu_option:
-                self.menu_texto(self, 20, MENU_OPCOES[i], COR_INDIGO, (WIN_WIDTH / 2, 790 + 30 * i))
-            else:
-                self.menu_texto(self, 20, MENU_OPCOES[i], COR_BRANCO, (WIN_WIDTH / 2, 790 + 30 * i))
+            cor = COR_INDIGO if i == menu_option else COR_ROSA
+            draw_text(self.window, MENU_OPCOES[i], 20, cor, ((WIN_WIDTH / 2)+30, 100 + 30 * i), center=False)
 
     # Responsável por exibir o título do jogo
     def escrever_titulo(self):
         # Catstle é a junção de cat e castle. Como Castelo Felino
-        self.menu_texto(self, 50, "Catstle", COR_BEGE, (WIN_WIDTH / 2, 700))
-        self.menu_texto(self, 50, "Blood", COR_BEGE, (WIN_WIDTH / 2, 745))
+        draw_text(self.window, "Catstle Blood", 80, COR_LARANJA, (WIN_WIDTH / 2, 50), center=True)
 
     # Responsável por finalizar o jogo
     @staticmethod
     def fim_game():
         pg.quit()  # Fecha janela
         quit()  # Finaliza o pygame
-
-    @staticmethod
-    def menu_texto(self, tamanho: int, texto: str, cor_texto: tuple, posicao_texto: tuple):
-        text_font: Font = pg.font.SysFont(name='Broadway', size=tamanho)
-        text_surf: Surface = text_font.render(texto, True, cor_texto).convert_alpha()
-        text_rect: Rect = text_surf.get_rect(center=posicao_texto)
-        self.window.blit(source=text_surf, dest=text_rect)
