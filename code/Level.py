@@ -6,6 +6,7 @@ from code.Backgound import Background
 from code.Const import WIN_HEIGHT, COR_INDIGO, COR_ROSA, ENTITY_SPEED, MENU_OPCOES, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 from code.TextUtils import draw_text
 
 
@@ -53,4 +54,7 @@ class Level:
             draw_text(self.window, f'fps: {clock.get_fps() :.0f}', 20, COR_INDIGO, (10, WIN_HEIGHT - 35))
             draw_text(self.window, f'entidades: {len(self.entity_list)}', 20, COR_INDIGO, (10, WIN_HEIGHT - 20))
             pg.display.flip()
+            # Verificando colisões e vida
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
 

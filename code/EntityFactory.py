@@ -6,9 +6,6 @@ from code.Enemy import Enemy
 from code.Player import Player
 
 
-# from code.Player import Player
-
-
 class EntityFactory:
 
     @staticmethod
@@ -25,7 +22,7 @@ class EntityFactory:
             case 'Player2':
                 return [Player('Player2', (10, (WIN_HEIGHT / 2)))]
             case 'Enemy1':
-                return [Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(0 + 40, WIN_HEIGHT - 40)))]
+                return [Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(0 + 100, WIN_HEIGHT - 100)))]
             case 'Enemy2':
-                return [Enemy('Enemy2', (WIN_WIDTH + 10, random.randint(0 + 40, WIN_HEIGHT - 40)))]
+                return [Enemy('Enemy2', (WIN_WIDTH + 10, random.randint(0 + 100, WIN_HEIGHT - 100)))]
         return None
