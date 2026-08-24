@@ -50,9 +50,9 @@ class Level:
                     if shoot is not None:
                         self.entity_list.append(shoot)
                     if ent.name == 'Player1':
-                        draw_text(self.window, f'Player1 - Health: {ent.health}', 15, COR_LARANJA, (WIN_WIDTH-180, 10))
+                        draw_text(self.window, f'Player1 - Health: {ent.health} | Score:{ent.score}', 15, COR_LARANJA, (WIN_WIDTH-270, 10))
                     if ent.name == 'Player2':
-                        draw_text(self.window, f'Player2 - Health: {ent.health}', 15, COR_LARANJA, (WIN_WIDTH-180, 30))
+                        draw_text(self.window, f'Player2 - Health: {ent.health} | Score:{ent.score}', 15, COR_LARANJA, (WIN_WIDTH-270, 30))
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:

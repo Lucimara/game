@@ -48,6 +48,27 @@ ENTITY_HEALTH = {
     'Enemy2Shot': 1  #
 }
 
+ENTITY_SCORE = {
+    'Level1BG0': 0,
+    'Level1BG1': 0,
+    'Level1BG2': 0,
+    'Level1BG3': 0,
+    'Level1BG4': 0,
+    'Level1BG5': 0,
+    'Level1BG6': 0,
+    'Level1BG7': 0,
+    'Level1BG8': 0,
+    'Level1BG9': 0,
+    'Player1': 0,
+    'Player2': 0,
+    'Enemy1': 100,
+    'Enemy2': 100,
+    'Player1Shot': 0,
+    'Player2Shot': 0,
+    'Enemy1Shot': 0,
+    'Enemy2Shot': 0
+}
+
 ENTITY_SPEED = {
     'Level1BG0': 6,  # fumaça
     'Level1BG1': 4,  # nuvem grossa
