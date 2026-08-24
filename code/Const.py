@@ -6,6 +6,27 @@ COR_ROSA = (255, 120, 150)
 COR_INDIGO = (126, 132, 247)
 
 # E
+ENTITY_DAMAGE = {
+    'Level1BG0': 0,
+    'Level1BG1': 0,
+    'Level1BG2': 0,
+    'Level1BG3': 0,
+    'Level1BG4': 0,
+    'Level1BG5': 0,
+    'Level1BG6': 0,
+    'Level1BG7': 0,
+    'Level1BG8': 0,
+    'Level1BG9': 0,
+    'Player1': 1,
+    'Player2': 1,
+    'Enemy1': 1,
+    'Enemy2': 1,
+    'Player1Shot': 25,
+    'Player2Shot': 20,
+    'Enemy1Shot': 20,
+    'Enemy2Shot': 15
+}
+
 ENTITY_HEALTH = {
     'Level1BG0': 999,
     'Level1BG1': 999,
@@ -40,12 +61,12 @@ ENTITY_SPEED = {
     'Level1BG9': 2,  # imagem completa
     'Player1': 7,  # velocidade Player1
     'Player2': 7,  # velocidade Player2
-    'Enemy1': 4,  # velocidade Enemy1
+    'Enemy1': 3,  # velocidade Enemy1
     'Enemy2': 2,  # velocidade Enemy2
     'Player1Shot': 3,  # velocidade tiro Player1
     'Player2Shot': 3,  # velocidade tiro Player2
-    'Enemy1Shot': 3,  # velocidade tiro Enemy1
-    'Enemy2Shot': 3  # velocidade tiro Enemy2
+    'Enemy1Shot': 6,  # velocidade tiro Enemy1
+    'Enemy2Shot': 4  # velocidade tiro Enemy2
 }
 
 ENTITY_SHOT_DELAY = {

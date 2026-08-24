@@ -1,9 +1,10 @@
-# import random
+import random
 
 import pygame as pg
 
 from code.Backgound import Background
-from code.Const import WIN_HEIGHT, COR_INDIGO, COR_ROSA, ENTITY_SPEED, MENU_OPCOES, EVENT_ENEMY, SPAWN_TIME
+from code.Const import WIN_HEIGHT, COR_INDIGO, COR_ROSA, ENTITY_SPEED, MENU_OPCOES, EVENT_ENEMY, SPAWN_TIME, WIN_WIDTH, \
+    COR_LARANJA
 from code.Enemy import Enemy
 
 from code.Entity import Entity
@@ -48,15 +49,18 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
+                    if ent.name == 'Player1':
+                        draw_text(self.window, f'Player1 - Health: {ent.health}', 15, COR_LARANJA, (WIN_WIDTH-180, 10))
+                    if ent.name == 'Player2':
+                        draw_text(self.window, f'Player2 - Health: {ent.health}', 15, COR_LARANJA, (WIN_WIDTH-180, 30))
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     pg.quit()  # Fecha janela
                     quit()
                 if event.type == EVENT_ENEMY:
-                    choice = 'Enemy2' # random.choice(('Enemy2', 'Enemy1'))
+                    choice =  random.choice(('Enemy2', 'Enemy1'))
                     self.entity_list.extend(EntityFactory.get_entity(choice))
-
 
             draw_text(self.window, f'{self.name} - Timeout: {self.timeout / 1000}s', 20, COR_ROSA, (10, 5))
             draw_text(self.window, f'fps: {clock.get_fps() :.0f}', 20, COR_INDIGO, (10, WIN_HEIGHT - 35))
