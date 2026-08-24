@@ -20,7 +20,11 @@ ENTITY_HEALTH = {
     'Player1': 300,  # vida Player1
     'Player2': 300,  # vida Player2
     'Enemy1': 50,  # vida Enemy1
-    'Enemy2': 60  # vida Enemy2
+    'Enemy2': 60,  # vida Enemy2
+    'Player1Shot': 10,  #
+    'Player2Shot': 10,  #
+    'Enemy1Shot': 1,  #
+    'Enemy2Shot': 1  #
 }
 
 ENTITY_SPEED = {
@@ -29,7 +33,7 @@ ENTITY_SPEED = {
     'Level1BG2': 5,  # nuvem mais elevada
     'Level1BG3': 1,  # fundo gradiente
     'Level1BG4': 10,  # nuvem base
-    'Level1BG5': 3,  # estrelas mais fracas
+    'Level1BG5': 3,  # estrelas mais fraca
     'Level1BG6': 2,  # estrelas fracas
     'Level1BG7': 3,  # estrelas fortes
     'Level1BG8': 2,  # castelinho
@@ -37,7 +41,18 @@ ENTITY_SPEED = {
     'Player1': 7,  # velocidade Player1
     'Player2': 7,  # velocidade Player2
     'Enemy1': 4,  # velocidade Enemy1
-    'Enemy2': 2  # velocidade Enemy2
+    'Enemy2': 2,  # velocidade Enemy2
+    'Player1Shot': 3,  # velocidade tiro Player1
+    'Player2Shot': 3,  # velocidade tiro Player2
+    'Enemy1Shot': 3,  # velocidade tiro Enemy1
+    'Enemy2Shot': 3  # velocidade tiro Enemy2
+}
+
+ENTITY_SHOT_DELAY = {
+    'Player1': 6,
+    'Player2': 6,
+    'Enemy1': 100,
+    'Enemy2': 100,
 }
 EVENT_ENEMY = pygame.USEREVENT + 1
 

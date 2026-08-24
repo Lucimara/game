@@ -1,12 +1,15 @@
-import random
+# import random
 
 import pygame as pg
 
 from code.Backgound import Background
 from code.Const import WIN_HEIGHT, COR_INDIGO, COR_ROSA, ENTITY_SPEED, MENU_OPCOES, EVENT_ENEMY, SPAWN_TIME
+from code.Enemy import Enemy
+
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
+from code.Player import Player
 from code.TextUtils import draw_text
 
 
@@ -36,17 +39,22 @@ class Level:
                     key=lambda bg: ENTITY_SPEED[bg.name]):
                 self.window.blit(ent.surf, ent.rect)
                 ent.move()
-            # desenha player
+
+            # desenha player antigo
             for ent in [e for e in self.entity_list if not isinstance(e, Background)]:
                 self.window.blit(ent.surf, ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     pg.quit()  # Fecha janela
                     quit()
                 if event.type == EVENT_ENEMY:
-                    choice = random.choice(('Enemy2', 'Enemy1'))
+                    choice = 'Enemy2' # random.choice(('Enemy2', 'Enemy1'))
                     self.entity_list.extend(EntityFactory.get_entity(choice))
 
 
