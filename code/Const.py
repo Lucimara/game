@@ -1,9 +1,11 @@
 import pygame
 
 # C
+COR_BRANCA = (255, 255, 255)
+COR_INDIGO = (126, 132, 247)
 COR_LARANJA = (255, 150, 90)
 COR_ROSA = (255, 120, 150)
-COR_INDIGO = (126, 132, 247)
+
 
 # E
 ENTITY_DAMAGE = {

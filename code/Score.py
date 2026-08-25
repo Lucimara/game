@@ -2,7 +2,7 @@ import pygame as pg
 
 from code.Const import WIN_WIDTH, WIN_HEIGHT, COR_LARANJA
 from code.TextUtils import draw_text
-
+# Ainda não implementei score
 class Score:
     def __init__(self, window):
         self.window = window

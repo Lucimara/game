@@ -7,6 +7,7 @@ from code.Backgound import Background
 from code.BtnBack import BtnBack
 from code.Const import WIN_HEIGHT, COR_INDIGO, COR_ROSA, ENTITY_SPEED, MENU_OPCOES, EVENT_ENEMY, SPAWN_TIME, WIN_WIDTH, \
     COR_LARANJA, EVENT_TIMEOUT, TIMEOUT_STEP, TIMEOUT_LEVEL
+from code.EndScreen import EndScreen
 from code.Enemy import Enemy
 
 from code.Entity import Entity
@@ -73,13 +74,21 @@ class Level:
                     self.entity_list.extend(EntityFactory.get_entity(choice))
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP
-                    if self.timeout == 0:
+                    if self.timeout == 0: # VITORIA
                         for ent in self.entity_list:
                             if isinstance(ent, Player) and ent.name == 'Player1':
                                 player_score[0] = ent.score
                             if isinstance(ent, Player) and ent.name == 'Player2':
                                 player_score[1] = ent.score
+                        end = EndScreen(self.window,  "./asset/victorybg.png")
+                        end.run()
                         return True
+                    # derrota
+                    found_player = any(isinstance(ent, Player) for ent in self.entity_list)
+                    if not found_player:
+                        end = EndScreen(self.window,  "./asset/defeatbg.png")
+                        end.run()  # aqui estava faltando
+                        return False
                 if event.type == pg.MOUSEBUTTONDOWN:
                     if self.btn_back.clicado(event.pos):
                         pg.mixer_music.stop()

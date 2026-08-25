@@ -42,10 +42,7 @@ class Menu:
                         if menu_option in [0, 1, 2]:
                             player_score = [0, 0]
                             level = Level(self.window, 'Level1', MENU_OPCOES[menu_option], player_score)
-                            level_return = level.run(player_score)
-                            # if level_return:
-                            #     score.save(MENU_OPCOES[menu_option], player_score)
-                            # quando o level terminar, recarrega a música do menu
+                            level.run(player_score)
                             self.play_music()
                         elif menu_option == 3:  # opção Ajuda
                             ajuda = Score(self.window)

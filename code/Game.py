@@ -2,7 +2,6 @@ import pygame as pg
 
 from code import Const
 from code.Menu import Menu
-from code.Score import Score
 
 
 class Game:
@@ -13,7 +12,6 @@ class Game:
         pg.mixer.init()
 
     def run(self):
-        score = Score(self.window)
         menu = Menu(self.window)
         menu.run()
 
