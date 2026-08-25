@@ -1,8 +1,9 @@
 import pygame as pg
 
-from code import Const
 from code.Const import WIN_WIDTH, COR_LARANJA, MENU_OPCOES, COR_ROSA, COR_INDIGO
+from code.Help import Help
 from code.Level import Level
+from code.Score import Score
 from code.TextUtils import draw_text
 
 
@@ -13,6 +14,7 @@ class Menu:
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
+        self.play_music()
         menu_option = 0
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
@@ -33,15 +35,25 @@ class Menu:
                             menu_option -= 1
                         else:
                             menu_option = len(MENU_OPCOES) - 1
+                    score = Score(self.window)
                     if event.key == pg.K_RETURN: # Tecla ENTER
                         print('Menu_option: ', menu_option)
-                        print("Constante: ", Const.MENU_OPCOES[menu_option])
+                        print("Constante: ", MENU_OPCOES[menu_option])
                         if menu_option in [0, 1, 2]:
-                            print('Entrou na opção: ', Const.MENU_OPCOES[menu_option])
-                            level = Level(self.window, 'Level1', Const.MENU_OPCOES[menu_option])
-                            level.run()
-                            # level_return = level.run()
-                        elif menu_option == 4:
+                            player_score = [0, 0]
+                            level = Level(self.window, 'Level1', MENU_OPCOES[menu_option], player_score)
+                            level_return = level.run(player_score)
+                            # if level_return:
+                            #     score.save(MENU_OPCOES[menu_option], player_score)
+                            # quando o level terminar, recarrega a música do menu
+                            self.play_music()
+                        elif menu_option == 3:  # opção Ajuda
+                            ajuda = Score(self.window)
+                            ajuda.run()
+                        elif menu_option == 4:  # opção Ajuda
+                            ajuda = Help(self.window)
+                            ajuda.run()
+                        elif menu_option == 5:
                             self.fim_game()
                         else:
                             pass
@@ -49,6 +61,10 @@ class Menu:
                 if event.type == pg.QUIT:
                     self.fim_game()
 
+    @staticmethod
+    def play_music():
+        pg.mixer_music.load('./asset/sound-tribal-ambient-meditative-texture.wav')
+        pg.mixer_music.play(-1)
 
     def escrever_opcoes(self, menu_option):
         for i in range(len(MENU_OPCOES)):
