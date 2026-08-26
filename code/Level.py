@@ -80,13 +80,13 @@ class Level:
                                 player_score[0] = ent.score
                             if isinstance(ent, Player) and ent.name == 'Player2':
                                 player_score[1] = ent.score
-                        end = EndScreen(self.window,  "./asset/victorybg.png")
+                        end = EndScreen(self.window,  'victorybg')
                         end.run()
                         return True
                     # derrota
                     found_player = any(isinstance(ent, Player) for ent in self.entity_list)
                     if not found_player:
-                        end = EndScreen(self.window,  "./asset/defeatbg.png")
+                        end = EndScreen(self.window,  'defeatbg')
                         end.run()  # aqui estava faltando
                         return False
                 if event.type == pg.MOUSEBUTTONDOWN:

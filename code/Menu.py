@@ -4,6 +4,7 @@ from code.Const import WIN_WIDTH, COR_LARANJA, MENU_OPCOES, COR_ROSA, COR_INDIGO
 from code.Help import Help
 from code.Level import Level
 from code.Score import Score
+
 from code.TextUtils import draw_text
 
 
@@ -36,6 +37,7 @@ class Menu:
                         else:
                             menu_option = len(MENU_OPCOES) - 1
                     score = Score(self.window)
+
                     if event.key == pg.K_RETURN: # Tecla ENTER
                         print('Menu_option: ', menu_option)
                         print("Constante: ", MENU_OPCOES[menu_option])
@@ -45,8 +47,8 @@ class Menu:
                             level.run(player_score)
                             self.play_music()
                         elif menu_option == 3:  # opção Ajuda
-                            ajuda = Score(self.window)
-                            ajuda.run()
+                            # score = Score(self.window)
+                            score.run()
                         elif menu_option == 4:  # opção Ajuda
                             ajuda = Help(self.window)
                             ajuda.run()
